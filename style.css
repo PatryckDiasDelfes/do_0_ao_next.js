@@ -1,0 +1,17 @@
+    table {
+        margin: 0 auto;
+    }
+
+    td {
+        width: 100px;
+        height: 100px;
+        font-size: 90px;
+        color: aliceblue;
+        text-align: center;
+        background-color: aqua;
+        cursor: pointer;
+    }
+
+    td:hover {
+        background-color: lightgray;
+    }
