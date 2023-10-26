@@ -1,3 +1,7 @@
+    header {
+        background: #0D0D0D;
+    }
+
     table {
         margin: 0 auto;
     }
@@ -8,10 +12,10 @@
         font-size: 90px;
         color: aliceblue;
         text-align: center;
-        background-color: aqua;
+        background-color: #F2522E;
         cursor: pointer;
     }
 
     td:hover {
-        background-color: lightgray;
+        background-color: #FA7A32;
     }
