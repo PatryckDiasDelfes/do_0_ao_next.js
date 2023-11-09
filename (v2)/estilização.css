@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+}
+body {
+    display: flex;
+    justify-items: center;
+}
+table {
+    margin: 5px;
+}
+
+td {
+    height: 120px;
+    width: 120px;
+    font-size: 90px;
+    text-align: center;
+    cursor: pointer;
+    background-color: grey;
+}
+
+td:hover {
+    background-color: lightgrey;
+}
