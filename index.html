@@ -2,17 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<!-- head é a cabeça/cabeçalho do html -->
 
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+<!-- Serve para definirmos o tipo de idioma e seus caracteres podemos pensar como se ele definise qual tipo de teclado ele é, estadunidense ou brasileiro -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+/* Style serve para usarmos o CSS, que trabalha mais a estilização */
+
+        h1 {
+        text-align: center;
+        }   
     
+        table {
+            margin: 0 auto;
+        }
+
+        td {
+            width: 100px;
+            height: 100px;
+            font-size: 90px;
+            color: aliceblue;
+            text-align: center;
+            background-color: #A6754B;
+            cursor: pointer;
+        }
+
+        td:hover {
+            background-color: #DF9E64;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Jogo da velha componentizado</h1>
+<!-- body é a cabeça/cabeçalho do html -->
+
+    <h1>Jogo da velha</h1>
     <table>
-        <tr>    
+        <tr>
             <td onclick="mark(0)">
             </td>
             <td onclick="mark(1)"></td>
@@ -20,15 +50,54 @@
         <tr>
             <td onclick="mark(3)"></td>
             <td onclick="mark(4)"></td>
-            <td onclick="mark(5)"></td>   
+            <td onclick="mark(5)"></td>
         </tr>
         <tr>
             <td onclick="mark(6)"></td>
             <td onclick="mark(7)"></td>
-            <td onclick="mark(8)"></td>   
+            <td onclick="mark(8)"></td>
         </tr>
     </table>
-    <script src="script.js"></script>
+
+    <script>
+// script é aonde vamos poder por JS para criar logica
+
+        let jogador = "X"
+        let table = ["", "", "", "", "", "", "", "", ""]
+
+        function mark(indice) {
+
+            if (table[indice] != "") return
+//Verifica se a caixa está com valor. Caso tenha ela encerra a função(return). Caso contrario segue o codigo
+
+            table[indice] = jogador
+            if (jogador == "X") {
+                jogador = "O"
+            }
+//Vefica(==) se é "jogador= X". Se for " jogador= X" ele atribui(=) valor para "jogador= O"
+
+            else {
+                jogador = "X"
+            }
+//Se valor foi verificado como "jogador= O", ele reatribui valor para "jogador= X"
+
+            render()
+//Antes do render, atualizamos o estado da aplicação, para agora chamar o "render" atualizamos a tela do user.
+        }
+
+        function render() {
+            let tds = document.querySelectorAll("td")
+//"let tds = document.querySelectorAll("td") acessa o documento do aplicação e seleciona os "td" 
+            tds.forEach((td, indice) => {
+                td.innerHTML = table[indice]
+            })
+//Chamando a variavel "tds" ele passa por cada uma(forEach) e então executa um bloco de codigo "{}".
+//Para então acessar o "innerHTML". Pegar oque tem em "td" e atribuir o valor de tabela/indice.
+//Por fim ele atualiza a tela 
+        }
+
+    </script>
+
 </body>
 
 </html>
